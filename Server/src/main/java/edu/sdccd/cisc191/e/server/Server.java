@@ -1,4 +1,7 @@
-package edu.sdccd.cisc191.a;
+package edu.sdccd.cisc191.e.server;
+
+import edu.sdccd.cisc191.e.Request;
+import edu.sdccd.cisc191.e.Response;
 
 import java.net.*;
 import java.io.*;
@@ -27,9 +30,9 @@ public class Server {
 
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
-            CustomerRequest request = CustomerRequest.fromJSON(inputLine);
-            CustomerResponse response = new CustomerResponse(request.getId(), "Jane", "Doe");
-            out.println(CustomerResponse.toJSON(response));
+            Request request = Request.fromJSON(inputLine);
+            Response response = new Response(request.getAccountNumber(), "John Smith", 134.54);
+            out.println(Response.toJSON(response));
         }
     }
 

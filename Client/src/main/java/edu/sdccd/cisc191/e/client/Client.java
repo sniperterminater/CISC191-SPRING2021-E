@@ -1,7 +1,9 @@
-package edu.sdccd.cisc191.a;
+package edu.sdccd.cisc191.e.client;
+
+import edu.sdccd.cisc191.e.Request;
+import edu.sdccd.cisc191.e.Response;
 
 import java.net.*;
-import java.util.Scanner;
 import java.io.*;
 
 /**
@@ -28,9 +30,14 @@ public class Client {
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     }
 
-    public CustomerResponse sendRequest() throws Exception {
+    /*public CustomerResponse sendRequest() throws Exception {
         out.println(CustomerRequest.toJSON(new CustomerRequest(1)));
         return CustomerResponse.fromJSON(in.readLine());
+    }*/
+
+    public Response sendRequest() throws Exception {
+        out.println(Request.toJSON(new Request("3543")));
+        return Response.fromJSON(in.readLine());
     }
 
     public void stopConnection() throws IOException {

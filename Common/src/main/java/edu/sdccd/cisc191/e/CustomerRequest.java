@@ -1,21 +1,21 @@
-package edu.sdccd.cisc191.a;
+package edu.sdccd.cisc191.e;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
 
 public class CustomerRequest {
     private Integer id;
 
     @JsonIgnore
     private static final ObjectMapper objectMapper = new ObjectMapper();
+
     public static String toJSON(CustomerRequest customer) throws Exception {
         return objectMapper.writeValueAsString(customer);
     }
-    public static CustomerRequest fromJSON(String input) throws Exception{
+    public static CustomerRequest fromJSON(String input) throws Exception {
         return objectMapper.readValue(input, CustomerRequest.class);
     }
+
     protected CustomerRequest() {}
 
     public CustomerRequest(Integer id) {

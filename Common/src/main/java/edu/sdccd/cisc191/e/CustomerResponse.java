@@ -1,9 +1,7 @@
-package edu.sdccd.cisc191.a;
+package edu.sdccd.cisc191.e;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.File;
 
 public class CustomerResponse {
     private Integer id;
@@ -15,7 +13,7 @@ public class CustomerResponse {
     public static String toJSON(CustomerResponse customer) throws Exception {
         return objectMapper.writeValueAsString(customer);
     }
-    public static CustomerResponse fromJSON(String input) throws Exception{
+    public static CustomerResponse fromJSON(String input) throws Exception {
         return objectMapper.readValue(input, CustomerResponse.class);
     }
     protected CustomerResponse() {}
